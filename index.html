@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>syväLM</title>
+    <link rel="icon" href="/logos/syvaLM final favicon.png" type="image/x-icon">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -83,8 +84,20 @@
     </div>
 
     <div id="main">
-      <button class="openbtn" onclick="openNav()">☰ <img src="pic_trulli.jpg" alt="Italian Trulli"> </button>
-
+      <button class="openbtn" onclick="openNav()">☰ <img src="/logos/syvaLM final favicon (transparent).png" alt="Italian Trulli"> </button>
+    </div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+      }
+      </script>
 
 
 
