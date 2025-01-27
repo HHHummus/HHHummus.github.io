@@ -107,6 +107,55 @@
 
 
 
+   <div id="chat"></div>
+    <input type="text" id="input" placeholder="Type your message...">
+    <script>
+        const chat = document.getElementById('chat');
+        const input = document.getElementById('input');
+
+        input.addEventListener("keyup", e => {
+            if (e.key === "Enter" && input.value.trim()) {
+                sendMessage(input.value.trim());
+                input.value = "";
+            }
+        });
+
+        async function sendMessage(message) {
+            appendMessage("User", message);
+            try {
+                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer YOUR_OPENAI_API_KEY` //REPLACE THIS
+                    },
+                    body: JSON.stringify({
+                        model: "gpt-3.5-turbo",
+                        messages: [{ "role": "user", "content": message }]
+                    })
+                });
+                const data = await response.json();
+                const aiMessage = data.choices?.[0]?.message?.content || "Error getting response.";
+                appendMessage("AI", aiMessage);
+            } catch (error) {
+                console.error("API Error:", error);
+                appendMessage("AI", "Error getting response.");
+            }
+        }
+
+        function appendMessage(sender, message) {
+            chat.innerHTML += `<div><strong>${sender}:</strong> ${message}</div>`;
+            chat.scrollTop = chat.scrollHeight;
+        }
+    </script>
+
+
+
+
+
+
+
+
 
 
   </body>
