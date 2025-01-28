@@ -49,7 +49,7 @@
   </head>
   <body>
 
-      <!-- !PAGE CONTENT! -->
+  <!-- !PAGE CONTENT! -->
   <div class="w3-main" style="margin-left:250px">
 
     <!-- Push down content on small screens -->
@@ -57,7 +57,7 @@
     
     <!-- Top header -->
     <header class="w3-container w3-xlarge">
-      <p class="w3-left">Jeans</p>
+      <p class="w3-left">syväAI</p>
       <p class="w3-right">
         <i class="fa fa-shopping-cart w3-margin-right"></i>
         <i class="fa fa-search"></i>
@@ -69,6 +69,23 @@
           background-color: #FFFDD0;
       }
     </style>
+    <!-- Html positioning-->
+    <style>
+      .relative-container {
+          position: relative;
+          height: 200px;
+          border: 1px solid #000;
+      }
+      .absolute-text {
+          position: absolute;
+          top: 50px;
+          left: 50px;
+      }
+  </style>
+
+<div class="relative-container">
+  <div class="absolute-text">What can I do for you today?</div>
+</div>
 
 
    <div id="chat"></div>
