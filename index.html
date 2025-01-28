@@ -8,89 +8,6 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Chat/Logo-->
-    <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-  <div class="w3-container w3-display-container w3-padding-16">
-    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-    <h3 class="w3-wide"><b>LOGO</b></h3>
-  </div>
-  <div class="w3-padding-64 w3-large w3-text-grey" style="font-weight:bold">
-    <a href="#" class="w3-bar-item w3-button">Shirts</a>
-    <a href="#" class="w3-bar-item w3-button">Dresses</a>
-    <a onclick="myAccFunc()" href="javascript:void(0)" class="w3-button w3-block w3-white w3-left-align" id="myBtn">
-      Jeans <i class="fa fa-caret-down"></i>
-    </a>
-    <div id="demoAcc" class="w3-bar-block w3-hide w3-padding-large w3-medium">
-      <a href="#" class="w3-bar-item w3-button w3-light-grey"><i class="fa fa-caret-right w3-margin-right"></i>Skinny</a>
-      <a href="#" class="w3-bar-item w3-button">Relaxed</a>
-      <a href="#" class="w3-bar-item w3-button">Bootcut</a>
-      <a href="#" class="w3-bar-item w3-button">Straight</a>
-    </div>
-    <a href="#" class="w3-bar-item w3-button">Jackets</a>
-    <a href="#" class="w3-bar-item w3-button">Gymwear</a>
-    <a href="#" class="w3-bar-item w3-button">Blazers</a>
-    <a href="#" class="w3-bar-item w3-button">Shoes</a>
-  </div>
-  <a href="#footer" class="w3-bar-item w3-button w3-padding">Contact</a> 
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding" onclick="document.getElementById('newsletter').style.display='block'">Newsletter</a> 
-  <a href="#footer"  class="w3-bar-item w3-button w3-padding">Subscribe</a>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
-  <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
-  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-
-<script>
-  // Accordion 
-  function myAccFunc() {
-    var x = document.getElementById("demoAcc");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else {
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
-  
-  // Click on the "Jeans" link on page load to open the accordion for demo purposes
-  document.getElementById("myBtn").click();
-  
-  
-  // Open and close sidebar
-  function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
-  }
-   
-  function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
-  }
-  </script>
-  </head>
-  <body>
-
-  <!-- !PAGE CONTENT! -->
-  <div class="w3-main" style="margin-left:250px">
-
-    <!-- Push down content on small screens -->
-    <div class="w3-hide-large" style="margin-top:83px"></div>
-    
-    <!-- Top header -->
-    <header class="w3-container w3-xlarge">
-      <p class="w3-left">syväAI</p>
-      <p class="w3-right">
-        <i class="fa fa-shopping-cart w3-margin-right"></i>
-        <i class="fa fa-search"></i>
-      </p>
-    </header>
-
     <style>
       @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
       
@@ -105,6 +22,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background-color: #FFFDD0;
       }
       
       h1 {
@@ -114,6 +32,7 @@
         transform: scale(0.94);
         animation: scale 3s forwards cubic-bezier(0.5, 1, 0.89, 1);
       }
+
       @keyframes scale {
         100% {
           transform: scale(1);
@@ -152,59 +71,65 @@
       
       h1:nth-child(7) {
         animation: fade-in 0.8s 0.7s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }    
+      }
+      
       @keyframes fade-in {
         100% {
           opacity: 1;
           filter: blur(0);
         }
       }
-      </style>
 
+      /* Chat styling */
+      #chat {
+        max-height: 300px;
+        overflow-y: auto;
+        width: 90%;
+        margin: 20px 0;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #fff;
+      }
 
+      #input {
+        padding: 10px;
+        width: 80%;
+        margin-top: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+      }
 
+      .message {
+        margin: 5px 0;
+      }
 
+      .message-user {
+        color: blue;
+        font-weight: bold;
+      }
 
-
-
-
-
-
-
-
-
-
-    <style>
-      Body {
-          background-color: #FFFDD0;
+      .message-ai {
+        color: green;
+        font-weight: bold;
       }
     </style>
-    <!-- Html positioning-->
-    <style>
-      .divcenter h1 {
-        text-align: center;
-      }
-      </style>
+  </head>
+  <body>
 
-<div class="divcenter">
-  <br>
-  <br>
-  <br>
-  <br>
-  <h1>
-    <h1>What</h1>
-    <h1>Can</h1>
-    <h1>I</h1>
-    <h1>Do</h1>
-    <h1>For</h1>
-    <h1>You</h1>
-    <h1>Today?</h1>
-  </h1>
-</div>
+    <div class="divcenter">
+      <h1>What</h1>
+      <h1>Can</h1>
+      <h1>I</h1>
+      <h1>Do</h1>
+      <h1>For</h1>
+      <h1>You</h1>
+      <h1>Today?</h1>
+    </div>
 
-
-   <div id="chat"></div>
+    <div id="chat"></div>
     <input type="text" id="input" placeholder="Type your message...">
+
     <script>
         const chat = document.getElementById('chat');
         const input = document.getElementById('input');
@@ -223,7 +148,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer YOUR_OPENAI_API_KEY` //REPLACE THIS
+                        'Authorization': `Bearer YOUR_OPENAI_API_KEY` // Replace with your API key securely
                     },
                     body: JSON.stringify({
                         model: "gpt-3.5-turbo",
@@ -240,19 +165,12 @@
         }
 
         function appendMessage(sender, message) {
-            chat.innerHTML += `<div><strong>${sender}:</strong> ${message}</div>`;
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message');
+            messageDiv.innerHTML = `<strong class="${sender === 'User' ? 'message-user' : 'message-ai'}">${sender}:</strong> ${message}`;
+            chat.appendChild(messageDiv);
             chat.scrollTop = chat.scrollHeight;
         }
     </script>
-
-
-
-
-
-
-
-
-
-
   </body>
 </html>
