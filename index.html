@@ -20,11 +20,12 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         background-color: #FFFDD0;
+        margin-top: 50px; /* Adds space for the topbar */
       }
-      
+
       h1 {
         font-family: "Montserrat Medium";
         max-width: 40ch;
@@ -38,39 +39,11 @@
           transform: scale(1);
         }
       }
-      
+
       h1 {
         display: inline-block;
         opacity: 0;
         filter: blur(4px);
-      }
-      
-      h1:nth-child(1) {
-        animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(2) {
-        animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(3) {
-        animation: fade-in 0.8s 0.3s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(4) {
-        animation: fade-in 0.8s 0.4s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(5) {
-        animation: fade-in 0.8s 0.5s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(6) {
-        animation: fade-in 0.8s 0.6s forwards cubic-bezier(0.11, 0, 0.5, 0);
-      }
-      
-      h1:nth-child(7) {
-        animation: fade-in 0.8s 0.7s forwards cubic-bezier(0.11, 0, 0.5, 0);
       }
       
       @keyframes fade-in {
@@ -84,6 +57,15 @@
       .w3-sidebar {
         z-index: 3;
         width: 250px;
+        position: fixed;
+        height: 100%;
+        top: 0;
+        left: -250px; /* Initially hidden */
+        transition: left 0.3s ease-in-out;
+      }
+
+      .w3-sidebar.w3-show {
+        left: 0;
       }
 
       /* Chat styling */
@@ -119,12 +101,37 @@
         color: green;
         font-weight: bold;
       }
+
+      /* Top menu styling */
+      header {
+        width: 100%;
+        background-color: #000;
+        color: white;
+        padding: 10px 20px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+      }
+
+      .w3-bar-item {
+        padding: 10px;
+        cursor: pointer;
+      }
+      
+      .w3-bar-item.w3-button {
+        background-color: #111;
+      }
+      
+      .w3-bar-item.w3-button:hover {
+        background-color: #444;
+      }
     </style>
   </head>
   <body>
 
     <!-- Sidebar -->
-    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse" id="mySidebar">
       <div class="w3-container w3-display-container w3-padding-16">
         <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
         <h3 class="w3-wide"><b>LOGO</b></h3>
@@ -152,7 +159,7 @@
     </nav>
 
     <!-- Top menu on small screens -->
-    <header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+    <header class="w3-bar w3-top w3-black w3-xlarge">
       <div class="w3-bar-item w3-padding-24 w3-wide">LOGO</div>
       <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right" onclick="w3_open()"><i class="fa fa-bars"></i></a>
     </header>
@@ -227,12 +234,12 @@
         
         // Open and close sidebar
         function w3_open() {
-          document.getElementById("mySidebar").style.display = "block";
+          document.getElementById("mySidebar").style.left = "0";
           document.getElementById("myOverlay").style.display = "block";
         }
          
         function w3_close() {
-          document.getElementById("mySidebar").style.display = "none";
+          document.getElementById("mySidebar").style.left = "-250px";
           document.getElementById("myOverlay").style.display = "none";
         }
     </script>
