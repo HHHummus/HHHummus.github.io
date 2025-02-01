@@ -192,19 +192,27 @@
     <style>
       .dropbtn {
         background-color: white;
+        position: relative;
         color: black;
-        padding: 16px;
         font-size: 16px;
         border: none;
         cursor: pointer;
         border-radius: 12px;
         width: 100px;
         height: 30px;
-        display: flex;
+        display: block; /* Added missing semicolon */
         align-items: center;
-        justify-content: center;
+        justify-content: left; /* This won't work on a block element */
         box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
       }
+
+      /* Indent the entire button */
+      .dropdown {
+        position: relative;
+        display: block;
+        padding-left: 32px; /* Moves the button itself, not just the text */
+      }
+
       
       .dropbtn:hover, .dropbtn:focus {
         background-color: #f0f0f0;
